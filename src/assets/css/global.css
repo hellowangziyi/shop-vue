@@ -4,6 +4,7 @@ body,
     height: 100%;
     padding: 0;
     margin: 0;
+    min-width: 1366px;
 }
 
 .el-table {
@@ -12,4 +13,12 @@ body,
 
 .el-pagination {
     margin-top: 15px;
+}
+
+
+/* 面包屑底部间距 */
+
+.el-breadcrumb {
+    margin-bottom: 15px;
+    font-size: 16px;
 }
