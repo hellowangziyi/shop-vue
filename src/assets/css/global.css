@@ -22,3 +22,10 @@ body,
     margin-bottom: 15px;
     font-size: 16px;
 }
+
+
+/* 级联选择器高度 */
+
+.el-cascader-menu {
+    height: 300px;
+}
