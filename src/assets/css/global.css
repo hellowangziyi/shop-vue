@@ -29,3 +29,21 @@ body,
 .el-cascader-menu {
     height: 300px;
 }
+
+
+/* 进度条 */
+
+.el-steps {
+    margin: 15px 0;
+}
+
+.el-step__title {
+    font-size: 13px;
+}
+
+
+/* 富文本编辑框 */
+
+.ql-editor {
+    min-height: 300px;
+}

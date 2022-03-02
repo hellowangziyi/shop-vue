@@ -9,6 +9,14 @@ import './assets/fonts/iconfont.css'
 // 导入树形表格
 import TreeTable from 'vue-table-with-tree-grid'
 
+// 富文本编辑框
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css' // import styles
+import 'quill/dist/quill.snow.css' // for snow theme
+import 'quill/dist/quill.bubble.css' // for bubble theme
+
+Vue.use(VueQuillEditor, /* { default global options } */ )
+
 
 
 // 配置axios
@@ -26,6 +34,19 @@ Vue.config.productionTip = false
 
 // 注册树形表格
 Vue.component('tree-table', TreeTable)
+
+// 日期格式过滤器
+Vue.filter('dateFormat', function(val) {
+    var dt = new Date(val)
+    var y = dt.getFullYear()
+    var m = (dt.getMonth() + 1 + '').padStart(2, '0')
+    var d = (dt.getDate() + '').padStart(2, '0')
+
+    var HH = (dt.getHours() + '').padStart(2, '0')
+    var MM = dt.getMinutes()
+    var SS = dt.getSeconds()
+    return `${y}-${m}-${d} ${HH}:${MM}:${SS}`
+})
 
 new Vue({
     router,

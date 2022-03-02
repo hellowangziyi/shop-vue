@@ -204,7 +204,7 @@ export default {
         },
         // 获取参数列表数据
         async getParamsData(){
-            const {data:res} = await this.$http.get(`categories/${this.selectedKey[this.selectedKey.length - 1]}/attributes`, {params:{sel:this.activeName}})
+            const {data:res} = await this.$http.get(`categories/${this.cateId}/attributes`, {params:{sel:this.activeName}})
              if(res.meta.status !== 200) return this.$message.error(res.meta.msg)
 
             // 将attr_vals字符串分割为数组
