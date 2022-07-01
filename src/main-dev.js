@@ -17,20 +17,31 @@ import 'quill/dist/quill.bubble.css' // for bubble theme
 
 Vue.use(VueQuillEditor, /* { default global options } */ )
 
-
+// 加载进度条
+import nProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 // 配置axios
 import axios from 'axios'
+// import { response } from 'express'
 Vue.prototype.$http = axios
     // 配置axios根路径
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
     // axios请求拦截器来添加token，以保证拥有获取数据的权限
 axios.interceptors.request.use(config => {
-    //为请求头对象，添加token验证的Authorization字段
+    nProgress.start()
+        //为请求头对象，添加token验证的Authorization字段
     config.headers.Authorization = window.sessionStorage.getItem('token')
+        // 最后必须添加 return config
+    return config
+})
+axios.interceptors.response.use(config => {
+    nProgress.done()
     return config
 })
 Vue.config.productionTip = false
+
+
 
 // 注册树形表格
 Vue.component('tree-table', TreeTable)

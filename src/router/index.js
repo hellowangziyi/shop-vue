@@ -10,6 +10,8 @@ import GoodsCate from '../components/goods/GoodsCate.vue'
 import Params from '../components/goods/Params.vue'
 import Goods from '../components/goods/Goods.vue'
 import AddGoods from '../components/goods/AddGoods.vue'
+import Orders from '../components/orders/Orders.vue'
+import Reports from '../components/reports/Reports.vue'
 
 
 Vue.use(VueRouter)
@@ -21,6 +23,9 @@ const routes = [
         path: '/home',
         component: Home,
         redirect: '/welcome',
+        meta: {
+            title:'首页'
+        },
         children: [
             { path: '/welcome', component: Welcome },
             { path: '/users', component: User },
@@ -30,6 +35,8 @@ const routes = [
             { path: '/params', component: Params },
             { path: '/goods', component: Goods },
             { path: '/goods/add', component: AddGoods },
+            { path: '/orders', component: Orders , meta:{title:'订单'}},
+            { path: '/reports', component: Reports }
 
 
         ]
